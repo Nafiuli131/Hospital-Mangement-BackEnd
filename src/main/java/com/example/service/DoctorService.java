@@ -23,7 +23,7 @@ public class DoctorService {
     }
     public List<DoctorSign> getAllDoctorList(){
         List<DoctorSign> doctorSigns = new ArrayList<DoctorSign>();
-        doctorRepo.findAll().forEach(doctorSign -> doctorSigns.add(doctorSign));
+        doctorRepo.findAll().forEach(e -> doctorSigns.add(e));
         return doctorSigns;
 
     }
