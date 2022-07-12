@@ -4,6 +4,8 @@ import com.example.model.DoctorSign;
 import com.example.service.DoctorService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class DoctorSignController {
@@ -19,5 +21,9 @@ public class DoctorSignController {
     @GetMapping("getDoctorInfo/{email}/{password}")
     public DoctorSign getDoctorInfo(@PathVariable("email") String email,@PathVariable("password") String password){
         return doctorService.getDoctorInfo(email, password);
+    }
+    @GetMapping("allDoctorList")
+    public List<DoctorSign> getAllDoctorInfo(){
+        return doctorService.getAllDoctorList();
     }
 }

@@ -4,6 +4,9 @@ import com.example.model.DoctorSign;
 import com.example.repository.DoctorRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class DoctorService {
     DoctorRepo doctorRepo ;
@@ -17,5 +20,11 @@ public class DoctorService {
     }
     public DoctorSign getDoctorInfo(String email,String password){
         return doctorRepo.getDoctorInfo(email, password);
+    }
+    public List<DoctorSign> getAllDoctorList(){
+        List<DoctorSign> doctorSigns = new ArrayList<DoctorSign>();
+        doctorRepo.findAll().forEach(doctorSign -> doctorSigns.add(doctorSign));
+        return doctorSigns;
+
     }
 }
