@@ -2,10 +2,7 @@ package com.example.controller;
 
 import com.example.model.DoctorSign;
 import com.example.service.DoctorService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -18,5 +15,9 @@ public class DoctorSignController {
     @PostMapping("saveDoctor")
     public DoctorSign saveDoctor(@RequestBody DoctorSign doctorSign){
         return doctorService.saveDoctorInfo(doctorSign);
+    }
+    @GetMapping("getDoctorInfo/{email}/{password}")
+    public DoctorSign getDoctorInfo(@PathVariable("email") String email,@PathVariable("password") String password){
+        return doctorService.getDoctorInfo(email, password);
     }
 }

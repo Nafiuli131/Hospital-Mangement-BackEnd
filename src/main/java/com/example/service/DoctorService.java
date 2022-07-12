@@ -15,4 +15,7 @@ public class DoctorService {
 
         return  doctorRepo.save(doctorSign);
     }
+    public DoctorSign getDoctorInfo(String email,String password){
+        return doctorRepo.getDoctorInfo(email, password);
+    }
 }
