@@ -8,4 +8,6 @@ public interface DoctorRepo extends JpaRepository<DoctorSign,Long> {
 
     @Query(value = "select e from DoctorSign e where e.email=?1 and e.password=?2")
     public DoctorSign getDoctorInfo(String email,String password);
+    @Query(value = "select e from DoctorSign  e where e.email=?1")
+    public DoctorSign editDoctorInfo(String email);
 }

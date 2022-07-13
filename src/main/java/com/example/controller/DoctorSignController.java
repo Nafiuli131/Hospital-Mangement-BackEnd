@@ -26,4 +26,13 @@ public class DoctorSignController {
     public List<DoctorSign> getAllDoctorInfo(){
         return doctorService.getAllDoctorList();
     }
+
+    @PutMapping("editDoctorInfo/{email}/{name}/{qualification}/{specialization}/{password}")
+    public DoctorSign editDoctorInfo(@PathVariable("email") String email,
+                                     @PathVariable("name") String name,
+                                     @PathVariable("qualification") String qualification,
+                                     @PathVariable("specialization") String specialization,
+                                     @PathVariable("password") String password){
+        return doctorService.editDoctroInfo(email, name, qualification, specialization, password);
+    }
 }

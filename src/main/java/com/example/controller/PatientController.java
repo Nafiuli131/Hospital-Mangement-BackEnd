@@ -5,7 +5,7 @@ import com.example.service.PatientService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class PatientController {
     PatientService patientService;
@@ -24,5 +24,11 @@ public class PatientController {
     @GetMapping("findAllPatients")
     public List<PatientSign> findAllPatient(){
         return patientService.findAllPatient();
+    }
+    @PutMapping("editPatientInfo/{email}/{name}/{age}/{gender}/{password}")
+    public PatientSign editPatientInfo(@PathVariable("email") String email,@PathVariable("name") String name,
+                                       @PathVariable("age") String age,@PathVariable("gender") String gender,
+                                       @PathVariable("password") String password){
+        return patientService.editPatientInfo(email, name, age, gender, password);
     }
 }

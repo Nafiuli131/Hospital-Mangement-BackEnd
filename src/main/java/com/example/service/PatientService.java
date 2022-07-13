@@ -28,4 +28,12 @@ public class PatientService {
         patientRepo.findAll().forEach(e->patientSigns.add(e));
         return patientSigns;
     }
+    public  PatientSign editPatientInfo(String email,String name,String age,String gender,String password){
+        PatientSign findPatient=patientRepo.editPatientDetails(email);
+        findPatient.setPateint_name(name);
+        findPatient.setPatient_gender(gender);
+        findPatient.setPatient_age(age);
+        findPatient.setPatient_pass(password);
+        return patientRepo.save(findPatient);
+    }
 }

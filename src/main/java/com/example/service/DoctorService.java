@@ -27,4 +27,12 @@ public class DoctorService {
         return doctorSigns;
 
     }
+    public DoctorSign editDoctroInfo(String email,String name,String qualification,String specialization,String password){
+        DoctorSign findDoctor = doctorRepo.editDoctorInfo(email);
+        findDoctor.setD_name(name);
+        findDoctor.setSpecified_area(specialization);
+        findDoctor.setPassword(password);
+        findDoctor.setQualification(qualification);
+        return doctorRepo.save(findDoctor);
+    }
 }
