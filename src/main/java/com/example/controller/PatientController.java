@@ -31,4 +31,10 @@ public class PatientController {
                                        @PathVariable("password") String password){
         return patientService.editPatientInfo(email, name, age, gender, password);
     }
+    @DeleteMapping("deletePatient/{email}")
+    public String deletePatient(@PathVariable("email") String email){
+
+       patientService.deletePatient(email);
+       return "Patient deleted successfully";
+    }
 }

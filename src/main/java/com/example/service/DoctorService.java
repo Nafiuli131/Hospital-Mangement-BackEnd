@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.example.model.DoctorSign;
 import com.example.repository.DoctorRepo;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -34,5 +35,10 @@ public class DoctorService {
         findDoctor.setPassword(password);
         findDoctor.setQualification(qualification);
         return doctorRepo.save(findDoctor);
+    }
+
+    public void deleteDoctor(String email){
+         DoctorSign doctorSign = doctorRepo.editDoctorInfo(email);
+         doctorRepo.delete(doctorSign);
     }
 }

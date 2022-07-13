@@ -36,4 +36,9 @@ public class PatientService {
         findPatient.setPatient_pass(password);
         return patientRepo.save(findPatient);
     }
+
+    public void deletePatient(String email){
+        PatientSign deletePatient= patientRepo.editPatientDetails(email);
+        patientRepo.delete(deletePatient);
+    }
 }

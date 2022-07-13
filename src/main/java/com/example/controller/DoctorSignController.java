@@ -2,6 +2,8 @@ package com.example.controller;
 
 import com.example.model.DoctorSign;
 import com.example.service.DoctorService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,5 +36,10 @@ public class DoctorSignController {
                                      @PathVariable("specialization") String specialization,
                                      @PathVariable("password") String password){
         return doctorService.editDoctroInfo(email, name, qualification, specialization, password);
+    }
+    @DeleteMapping("deleteDoctor/{email}")
+    public String deleteDoctor(@PathVariable("email") String email){
+        doctorService.deleteDoctor(email);
+        return "Doctor deleted successfully";
     }
 }
