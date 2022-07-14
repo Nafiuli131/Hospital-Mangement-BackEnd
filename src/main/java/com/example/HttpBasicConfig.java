@@ -25,6 +25,7 @@ public class HttpBasicConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/findAllPatients").hasRole("admin")
+                .antMatchers("/allDoctorList").hasRole("admin")
                 .and().httpBasic();
     }
     @Bean
